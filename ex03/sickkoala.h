@@ -11,13 +11,13 @@
 
 class		SickKoala
 {
-  std::string	name;
-  public:
-  SickKoala(std::string name);
-  ~SickKoala();
-  void          poke();
-  bool		takeDrug(std::string str);
-  void		overDrive(std::string str);
+	std::string	name;
+	public:
+		SickKoala(std::string name);
+		~SickKoala();
+		void poke();
+		bool takeDrug(std::string str);
+		void overDrive(std::string str);
 };
 
 #endif
