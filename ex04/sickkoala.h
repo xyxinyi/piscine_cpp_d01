@@ -18,6 +18,7 @@ class SickKoala
 		void poke();
 		bool takeDrug(std::string str);
 		void overDrive(std::string str);
+		std::string getName();
 };
 
 #endif
