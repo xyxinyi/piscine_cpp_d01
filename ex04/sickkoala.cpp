@@ -19,13 +19,11 @@ SickKoala::SickKoala(std::string name)
 
 SickKoala::~SickKoala()
 {
-	//std::cout << "Mr. " << this->name << ": Kreooogg !! Je suis gueriiii !" << std::endl;
 	std::cout << "Mr."<< this->name << ": Kreooogg !! Je suis gueriiii !" << std::endl;
 }
 
 void SickKoala::poke()
 {
-	//std::cout << "Mr." << this->name << ": Gooeeeeerrk !! :’(" << std::endl;
 	std::cout << "Mr." << this->name << ": Gooeeeeerrk !! :'(" << std::endl;
 }
 
