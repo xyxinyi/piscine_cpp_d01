@@ -3,28 +3,29 @@
 #include <cstring>
 #include <fstream>
 #include <ios>
+using namespace std;
 
-void	my_cat(char **av)
+void my_cat(char **argv)
 {
 	int	count;
 	count = 0;
-	char chara;
-	while (av[++count] != NULL)
+	char c;
+	while (argv[++count] != NULL)
 	{
-		std::ifstream file(av[count], std::ios::in);
+		ifstream file(argv[count], ios::in);
 		if (!file)
-			std::cerr << "my_cat: " << av[count] <<": No such file or directory" << std::endl;
+			cerr << "my_cat: " << argv[count] <<": No such file or directory"<<endl;
 		else
-		while (file.get(chara))
-			std::cout << chara;
+		while (file.get(c))
+			cout << c;
 	}
 }
 
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	if (ac >= 2)
-		my_cat(av);
+	if (argc >= 2)
+		my_cat(argv);
 	else
-		std::cout << "my_cat: Usage : ./my_cat file [...]" << std::endl;
+		cout << "my_cat: Usage : ./my_cat file [...]"<<endl;
 	return 0;
 }

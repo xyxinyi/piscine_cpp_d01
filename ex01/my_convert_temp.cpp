@@ -1,31 +1,31 @@
 #include <iomanip>
 #include <iostream>
 
-void	calculate_celsius(float temp)
+void calculate_celsius(float temp)
 {
-	float result;
-	result = 9.0 / 5.0 * temp + 32;
+	float r;
+	r = 9.0 / 5.0 * temp + 32;
 	std::cout.precision(3);
-	std::cout << std::setw(16) << std::fixed << result << std::setw(16) << "Fahrenheit" << std::endl;
+	std::cout << std::setw(16) << std::fixed << r << std::setw(16) << "Fahrenheit" << std::endl;
 }
 
-void	calculate_fahrenheit(float temp)
+void calculate_fahrenheit(float temp)
 {
-	float result;
-	result = 5.0 / 9.0 * (temp - 32);
+	float r;
+	r = 5.0 / 9.0 * (temp - 32);
 	std::cout.precision(3);
-	std::cout << std::setw(16) << std::fixed << result << std::setw(16) << "Celsius" << std::endl;
+	std::cout << std::setw(16) << std::fixed << r << std::setw(16) << "Celsius" << std::endl;
 }
 
 int main()
 {
-	std::string temp_type;
+	std::string t;
 	float temp;
 	temp = 0;
-	std::cin >> temp >> temp_type;
-	if(temp_type == "Celsius")
+	std::cin >> temp >> t;
+	if(t == "Celsius")
 		calculate_celsius(temp);
-	if(temp_type == "Fahrenheit")
+	if(t == "Fahrenheit")
 		calculate_fahrenheit(temp);
 	return 0;
 }
