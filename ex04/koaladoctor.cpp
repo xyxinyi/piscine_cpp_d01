@@ -14,27 +14,32 @@ KoalaDoctor::~KoalaDoctor()
 	this->name.empty();;
 }
 
-void KoalaDoctor::diagnose(SickKoala *SickKoala)
+void	KoalaDoctor::diagnose(SickKoala *SickKoala)
 {
-	std::string drug[] = {"mars", "Buronzand", "Viagra", "Extasy", "Feuille d'eucalyptus"};
-	std::string report = SickKoala->getName() + ".report";
-	std::ofstream file(report.c_str(), std::ios::out);
-	std::cout << "Dr." << this->name << ": Alors qu'est-ce qui vous goerk Mr."
-		<< SickKoala->getName() << " \?" << std::endl;
+	std::string	drug[] = {"mars", "Buronzand", "Viagra", "Extasy", "Feuille d'eucalyptus"};
+	std::string	report = SickKoala->getName() + ".report";
+	std::ofstream	file(report.c_str(), std::ios::out);
 
+
+	std::cout << "Dr." << this->name << ": Alors qu'est-ce qui vous goerk Mr." << SickKoala->getName() << " \?" << std::endl;
 	SickKoala->poke();
 	if (file)
-    {
+	{
 		file << drug[random() % 5] << std::endl;
 		file.close();
-    }
+	}
 }
 
-void KoalaDoctor::timeCheck()
+void	KoalaDoctor::timeCheck()
 {
-	if (this->work)
-		std::cout << "Dr."<< this->name << ": Je commence le travail !" << std::endl;
-	else if (!this->work)
-		std::cout << "Dr."<< this->name << ": Je rentre dans ma foret d'eucalyptus !" << std::endl;
-	this->work = !this->work;
+	if (this->work == false) 
+	{
+		std::cout << "Dr." << this->name << ": Je commence le travail !" << std::endl;
+		this->work = true;
+	} 
+	else 
+	{
+		std::cout<< "Dr." << this->name << ": Je rentre dans ma foret d'eucalyptus !" << std::endl;
+		this->work = false;
+	}
 }

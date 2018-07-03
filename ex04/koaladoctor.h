@@ -10,13 +10,14 @@
 #include <algorithm>
 
 class KoalaDoctor{
-	std::string name;
-	bool work;
+	std::string   name;
+	bool		work;
+
 	public:
-		KoalaDoctor(std::string name);
-		~KoalaDoctor();
-		void diagnose(SickKoala *SickKoala);
-		void timeCheck();
+	KoalaDoctor(std::string name);
+	~KoalaDoctor();
+	void	diagnose(SickKoala *SickKoala);
+	void	timeCheck();
 };
 
 #endif

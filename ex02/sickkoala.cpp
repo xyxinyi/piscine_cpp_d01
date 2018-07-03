@@ -1,4 +1,16 @@
+#include <iostream>
+#include <algorithm>
 #include "sickkoala.h"
+
+std::string SickKoala::getName()
+{
+	return (this->name);
+}
+
+void SickKoala::setName(std::string New)
+{
+	this->name = New;
+}
 
 SickKoala::SickKoala(std::string name)
 {
@@ -7,47 +19,42 @@ SickKoala::SickKoala(std::string name)
 
 SickKoala::~SickKoala()
 {
-	std::cout << "Mr."<< this->name << ": Kreooogg !! Je suis gueriiii !" << std::endl;
-	this->name.empty();
+	std::cout << "Mr." << this->name << ": Kreooogg !! Je suis gueriiii !" << std::endl;
 }
 
 void SickKoala::poke()
 {
-	std::cout << "Mr."<< this->name << ": Gooeeeeerrk !! :'(" << std::endl;
+	std::cout << "Mr." << this->name << ": Gooeeeeerrk !! :'(" << std::endl;
 }
 
-bool SickKoala::takeDrug(std::string str)
+bool SickKoala::takeDrug(std::string param)
 {
-	if (str.compare("Buronzand") == 0)
+	std::string s = param;
+	transform(param.begin(), param.end(), s.begin(), ::tolower);
+	if ( s == "mars" )
 	{
-		std::cout << "Mr."<< this->name << ": Et la fatigue a fait son temps !" << std::endl;
-		return true;
+		std::cout << "Mr." << this->name << ": Mars, et ca kreog !" << std::endl;
 	}
-	std::transform(str.begin(), str.end(), str.begin(), tolower);
-	if (str.compare("mars") == 0)
+
+	else if (param == "Buronzand")
 	{
-		std::cout << "Mr."<< this->name << ": Mars, et ca kreog !" << std::endl;
-		return true;
+		std::cout << "Mr." << this->name << ": Et la fatigue a fait son temps !" << std::endl;
 	}
-	std::cout << "Mr."<< this->name << ": Goerkreog !" << std::endl;
-	return false;
+	
+	else
+	{
+		std::cout << "Mr." << this->name << ": Goerkreog !" << std::endl;
+		return false;
+	}
+	return true;
 }
 
-void SickKoala::overDrive(std::string str)
+void SickKoala::overDrive(std::string message)
 {
-	std::size_t pos;
-	pos = 0;
-	while ((pos = str.find("Kreog !", pos)) != std::string::npos)
-		str.replace(pos, 7, "1337 !");
-	std::cout << "Mr."<< this->name << ": " << str << std::endl;
+	int position;
+	while ((position = message.find("Kreog !")) != int(std::string::npos))
+	{
+		message.replace(position, 7, "1337 !", 0, 6);
+	}
+	std::cout << "Mr." << this->name << ": " << message << std::endl;
 }
-
-int main()
- {
-   SickKoala SickKoala("Koko") ;
-
-   SickKoala.poke();
-   SickKoala.takeDrug("Mars");
-   SickKoala.overDrive("Kreog ! Ca boume ?");
-   return 0;
- }
